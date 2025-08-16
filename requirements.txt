@@ -1,0 +1,36 @@
+# Google Earth Engine and Geospatial Analysis
+earthengine-api>=0.1.350
+geemap>=0.32.0
+
+# Core Data Science Libraries
+numpy>=1.21.0
+pandas>=1.5.0
+geopandas>=0.13.0
+rasterio>=1.3.0
+shapely>=2.0.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+joblib>=1.3.0
+
+# Visualization
+matplotlib>=3.6.0
+seaborn>=0.12.0
+
+# QGIS (install separately)
+# Follow QGIS installation instructions for your OS
+# https://qgis.org/en/site/forusers/download.html
+
+# Additional Geospatial Tools
+pyproj>=3.4.0
+fiona>=1.9.0
+rtree>=1.0.0
+
+# Jupyter for notebooks
+jupyter>=1.0.0
+ipykernel>=6.20.0
+
+# Utilities
+tqdm>=4.64.0
+python-dotenv>=1.0.0
+pathlib>=1.0.0
