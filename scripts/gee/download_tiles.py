@@ -112,27 +112,31 @@ def add_contextual_bands(image, region):
 
     # === TEXTURE FEATURES ===
     # 15. Standard deviation of NIR (texture indicator)
-    nir_texture = optical_bands.select('SR_B5').focal_stdDev(3).rename('NIR_TEXTURE')
+    nir_texture = optical_bands.select('SR_B5').reduceNeighborhood(
+        reducer=ee.Reducer.stdDev(),
+        kernel=ee.Kernel.square(3)
+    ).rename('NIR_TEXTURE')
 
     # Combine all bands into the comprehensive classification image
-    final_image = optical_bands \
-        .addBands(ndvi) \
-        .addBands(ndwi) \
-        .addBands(mndwi) \
-        .addBands(ndbi) \
-        .addBands(evi) \
-        .addBands(savi) \
-        .addBands(elevation) \
-        .addBands(slope) \
-        .addBands(aspect) \
-        .addBands(hillshade) \
-        .addBands(terrain_mountain) \
-        .addBands(water_mask) \
-        .addBands(veg_sparse) \
-        .addBands(veg_moderate) \
-        .addBands(veg_dense) \
-        .addBands(thermal) \
-        .addBands(nir_texture)
+    # Cast all bands to Float32 to ensure consistent data types
+    final_image = optical_bands.toFloat() \
+        .addBands(ndvi.toFloat()) \
+        .addBands(ndwi.toFloat()) \
+        .addBands(mndwi.toFloat()) \
+        .addBands(ndbi.toFloat()) \
+        .addBands(evi.toFloat()) \
+        .addBands(savi.toFloat()) \
+        .addBands(elevation.toFloat()) \
+        .addBands(slope.toFloat()) \
+        .addBands(aspect.toFloat()) \
+        .addBands(hillshade.toFloat()) \
+        .addBands(terrain_mountain.toFloat()) \
+        .addBands(water_mask.toFloat()) \
+        .addBands(veg_sparse.toFloat()) \
+        .addBands(veg_moderate.toFloat()) \
+        .addBands(veg_dense.toFloat()) \
+        .addBands(thermal.toFloat()) \
+        .addBands(nir_texture.toFloat())
     
     return final_image
 
