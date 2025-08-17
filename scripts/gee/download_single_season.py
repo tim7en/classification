@@ -5,7 +5,7 @@ Single Season Tile Download Script for Uzbekistan Land Cover Classification
 This script downloads tiles for ONE SEASON ONLY - useful for testing the full workflow
 with a manageable amount of data before processing all seasons.
 
-This version processes Summer 2024 (June-August 2024) across all 24 tiles.
+This version processes Winter 2023-2024 (December-February) across all 24 tiles.
 """
 
 import ee
@@ -36,7 +36,7 @@ def main():
     """Run single season download."""
     initialize_gee()
     
-    print("🌞 SINGLE SEASON DOWNLOAD - SUMMER 2024")
+    print("❄️ SINGLE SEASON DOWNLOAD - WINTER 2023-2024")
     print("="*60)
     print_configuration_summary()
     
@@ -81,12 +81,12 @@ def main():
     # Create collection
     collection = create_landsat_collection(satellite_config, uzbekistan_bounds)
     
-    # SINGLE SEASON PROCESSING - Summer 2024
-    target_season = 'summer_2024'
+    # SINGLE SEASON PROCESSING - Winter 2023-2024
+    target_season = 'winter_2023_2024'
     start_date, end_date = DATE_RANGES[target_season]
     
-    print(f"\n🌞 Processing SINGLE SEASON: {target_season} ({start_date} → {end_date})")
-    print(f"   📅 This covers June-August 2024 - peak growing season")
+    print(f"\n❄️ Processing SINGLE SEASON: {target_season} ({start_date} → {end_date})")
+    print(f"   📅 This covers December 2023 - February 2024 - winter dormant season")
     
     # Filter collection for the target season
     period_collection = (collection
@@ -137,7 +137,7 @@ def main():
             task = export_tile_to_drive(
                 enhanced_image, tile_geom, description, 
                 scale=scale, 
-                folder='uzbekistan_summer2024_tiles'  # Special folder for single season
+                folder='uzbekistan_winter2023_tiles'  # Special folder for winter season
             )
             
             # Save metadata
@@ -179,7 +179,7 @@ def main():
     # Final summary
     print(f"\n🎉 SINGLE SEASON DOWNLOAD COMPLETE!")
     print(f"="*60)
-    print(f"📊 Season: {target_season} (June-August 2024)")
+    print(f"📊 Season: {target_season} (December 2023 - February 2024)")
     print(f"✅ Successful tiles: {successful_tiles}/{len(tiles)}")
     
     if failed_tiles:
@@ -190,16 +190,16 @@ def main():
     print(f"\n📋 Processing Summary:")
     print(f"   🗺️  Grid: {grid['size_x']}×{grid['size_y']} = {grid['total_tiles']} tiles")
     print(f"   🛰️  Satellite: {satellite_config.get('description', 'Combined Landsat 8+9')}")
-    print(f"   📅 Season: Summer 2024 only")
-    print(f"   📁 Google Drive folder: 'uzbekistan_summer2024_tiles'")
+    print(f"   📅 Season: Winter 2023-2024 only")
+    print(f"   📁 Google Drive folder: 'uzbekistan_winter2023_tiles'")
     print(f"   📊 Metadata file: {metadata_file}")
     
     if EXPORT_CONFIG['google_drive']['enabled']:
         print(f"\n📥 Next steps:")
         print(f"   1. Check the GEE Tasks panel for export progress")
-        print(f"   2. Monitor Google Drive folder: 'uzbekistan_summer2024_tiles'")
-        print(f"   3. Once complete, you can run classification on summer 2024 data")
-        print(f"   4. If satisfied, run full multi-season download later")
+        print(f"   2. Monitor Google Drive folder: 'uzbekistan_winter2023_tiles'")
+        print(f"   3. Once complete, you can run classification on winter 2023-2024 data")
+        print(f"   4. Compare with summer data for seasonal land cover analysis")
     
     if successful_tiles == len(tiles):
         print(f"\n🎉 Perfect! All {len(tiles)} tiles processed successfully!")
