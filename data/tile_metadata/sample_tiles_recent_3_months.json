@@ -1,0 +1,77 @@
+[
+  {
+    "tile_id": "tile_00_00",
+    "period": "recent_3_months",
+    "date_range": [
+      "2025-05-19",
+      "2025-08-17"
+    ],
+    "bounds": [
+      55.9,
+      37.2,
+      58.78333333333333,
+      39.300000000000004
+    ],
+    "grid_position": {
+      "x": 0,
+      "y": 0
+    },
+    "export_description": "uzbekistan_sample_recent_3_months_tile_00_00_enhanced",
+    "task_id": "5UF6BGDK6Y5YQAIJDYN7UTXC",
+    "processing_time": "2025-08-17T21:23:42.880694",
+    "total_candidates": 935,
+    "satellite": "landsat_combined",
+    "scale": 30,
+    "sample_run": true
+  },
+  {
+    "tile_id": "tile_03_00",
+    "period": "recent_3_months",
+    "date_range": [
+      "2025-05-19",
+      "2025-08-17"
+    ],
+    "bounds": [
+      64.55,
+      37.2,
+      67.43333333333334,
+      39.300000000000004
+    ],
+    "grid_position": {
+      "x": 3,
+      "y": 0
+    },
+    "export_description": "uzbekistan_sample_recent_3_months_tile_03_00_enhanced",
+    "task_id": "6KILHV4EUJX7WAYPRZXOD46Q",
+    "processing_time": "2025-08-17T21:24:17.978674",
+    "total_candidates": 935,
+    "satellite": "landsat_combined",
+    "scale": 30,
+    "sample_run": true
+  },
+  {
+    "tile_id": "tile_05_03",
+    "period": "recent_3_months",
+    "date_range": [
+      "2025-05-19",
+      "2025-08-17"
+    ],
+    "bounds": [
+      70.31666666666666,
+      43.5,
+      73.2,
+      45.6
+    ],
+    "grid_position": {
+      "x": 5,
+      "y": 3
+    },
+    "export_description": "uzbekistan_sample_recent_3_months_tile_05_03_enhanced",
+    "task_id": "JXEHDUOE7SIDEITUIOMXD2YI",
+    "processing_time": "2025-08-17T21:24:55.778838",
+    "total_candidates": 935,
+    "satellite": "landsat_combined",
+    "scale": 30,
+    "sample_run": true
+  }
+]

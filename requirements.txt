@@ -1,6 +1,7 @@
 # Google Earth Engine and Geospatial Analysis
 earthengine-api>=0.1.350
 geemap>=0.32.0
+gdal>=3.4.0
 
 # Core Data Science Libraries
 numpy>=1.21.0
